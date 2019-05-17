@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import br.facisa.si2.Leilao.api.exceptions.RestException;
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
 public abstract class ServiceAbs <T extends Identificable>{
@@ -27,18 +28,18 @@ public abstract class ServiceAbs <T extends Identificable>{
 		
 	}
 	
-	public T atualiza( T t) throws erro{ // ATUALIZA
+	public T atualiza( T t) throws RestException{ // ATUALIZA
 		if (repository.existsById(t.getId())) {
 			return repository.save(t);
-		}throw new erro("Id não encontrado!!");
+		}throw new RestException("Id não encontrado!!");
 	}
 	
 	
-	public void deleta( Long id ) throws erro { // DELETE
+	public void deleta( Long id ) throws RestException { // DELETE
 		if (repository.existsById(id)) {
 			repository.deleteById(id); 
 		}else{
-			throw new erro("Não foi apagado!! ID errado ou não existe"); 
+			throw new RestException("Não foi apagado!! ID errado ou não existe"); 
 		}
 	}
 		
