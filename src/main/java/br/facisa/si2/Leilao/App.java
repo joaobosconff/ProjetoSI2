@@ -8,13 +8,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @EnableAutoConfiguration
 public class App implements CommandLineRunner {
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
 		System.out.println("Ta rodando");
+
+		
+		
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
 	}
+	
+	
 }

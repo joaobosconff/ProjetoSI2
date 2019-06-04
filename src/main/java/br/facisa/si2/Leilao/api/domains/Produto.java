@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.facisa.si2.Leilao.api.interfaces.Identificable;
+
 @Entity
-public class Produto {
+public class Produto implements Identificable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

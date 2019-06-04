@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import br.facisa.si2.Leilao.api.interfaces.Identificable;
+
 @Entity
-public class Mediador {
+public class Mediador implements Identificable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

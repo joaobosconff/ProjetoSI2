@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import br.facisa.si2.Leilao.api.interfaces.Identificable;
+
 @Entity
-public class Lance {
+public class Lance implements Identificable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
