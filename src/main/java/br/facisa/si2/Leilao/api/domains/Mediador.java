@@ -25,7 +25,7 @@ public class Mediador implements Identificable {
 	private Lance lance;
 	
 	@OneToMany
-	private List<Comprador> comprador;
+	private List<Comprador> compradores;
 
 	public Mediador(String nome, Lance lance) {
 		this.nome = nome;
@@ -62,14 +62,18 @@ public class Mediador implements Identificable {
 
 	public void setLance(Lance lance) {
 		this.lance = lance;
+		for (Comprador comprador : compradores) {
+			comprador.update();
+			
+		}
 	}
 
 	public List<Comprador> getComprador() {
-		return comprador;
+		return compradores;
 	}
 
 	public void setComprador(List<Comprador> comprador) {
-		this.comprador = comprador;
+		this.compradores = comprador;
 	}
 	
 

@@ -1,12 +1,10 @@
 package br.facisa.si2.Leilao.api.domains;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
@@ -16,16 +14,25 @@ public class Lance implements Identificable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany
-	private List<Produto> produtosLeiloados;
+	@OneToOne
+	private Produto produtoLeiloado;
 	
 	private Double precoLance;
+	
+	@OneToOne
+	private Comprador compradorFinal;
 
-	public Lance(List<Produto> produtosLeiloados, Double precoLance) {
-		this.produtosLeiloados = produtosLeiloados;
+	public Lance(Produto produtoLeiloados, Double precoLance) {
+		this.produtoLeiloado = produtoLeiloados;
 		this.precoLance = precoLance;
 	}
+	public Lance() {
+		
+	}
+	
+	
 
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,12 +41,12 @@ public class Lance implements Identificable {
 		this.id = id;
 	}
 
-	public List<Produto> getProdutosLeiloados() {
-		return produtosLeiloados;
+	public Produto getProdutoLeiloado() {
+		return produtoLeiloado;
 	}
 
-	public void setProdutosLeiloados(List<Produto> produtosLeiloados) {
-		this.produtosLeiloados = produtosLeiloados;
+	public void setProdutoLeiloado(Produto produtoLeiloado) {
+		this.produtoLeiloado = produtoLeiloado;
 	}
 
 	public Double getPrecoLance() {
@@ -49,8 +56,14 @@ public class Lance implements Identificable {
 	public void setPrecoLance(Double precoLance) {
 		this.precoLance = precoLance;
 	}
-	
 
-	
+	public Comprador getCompradorFinal() {
+		return compradorFinal;
+	}
 
+	public void setCompradorFinal(Comprador compradorFinal) {
+		this.compradorFinal = compradorFinal;
+	}
+	
+	
 }

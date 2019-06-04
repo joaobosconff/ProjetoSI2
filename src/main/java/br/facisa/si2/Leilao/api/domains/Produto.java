@@ -16,10 +16,13 @@ public class Produto implements Identificable {
 	private String nome;
 	
 	private double precoInicial;
+	
+	private double precoFinal;
 
-	public Produto(String nome, double precoInicial) {
+	public Produto(String nome, double precoInicial, double precoFinal) {
 		this.nome = nome;
 		this.precoInicial = precoInicial;
+		this.precoFinal = precoFinal;
 	}
 
 	public Long getId() {
@@ -45,6 +48,16 @@ public class Produto implements Identificable {
 	public void setPrecoInicial(double precoInicial) {
 		this.precoInicial = precoInicial;
 	}
+
+	public double getPrecoFinal() {
+		return precoFinal;
+	}
+
+	public void setPrecoFinal(double precoFinal) {
+		this.precoFinal = precoFinal;
+	}
+	
+	
 	
 
 	

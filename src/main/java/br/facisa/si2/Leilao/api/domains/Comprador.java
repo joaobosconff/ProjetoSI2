@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
@@ -15,6 +16,9 @@ public class Comprador implements Identificable {
 	private Long id;
 	
 	private String nome;
+	
+	@OneToOne
+	private Mediador mediador;
 	
 	public Comprador() {
 	}
@@ -43,7 +47,7 @@ public class Comprador implements Identificable {
 		this.nome = nome;
 	}
 
-	private void update() {
-		System.out.println("Preco do Lance é");
+	public void update() {
+		System.out.println("Preco do Lance é" + mediador.getPrecoDoLance());
 	}
 }
