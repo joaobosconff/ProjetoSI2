@@ -24,6 +24,10 @@ public class Produto implements Identificable {
 		this.precoInicial = precoInicial;
 		this.precoFinal = precoFinal;
 	}
+	
+	public Produto() {
+		
+	}
 
 	public Long getId() {
 		return id;
@@ -56,6 +60,14 @@ public class Produto implements Identificable {
 	public void setPrecoFinal(double precoFinal) {
 		this.precoFinal = precoFinal;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", precoInicial=" + precoInicial + ", precoFinal=" + precoFinal
+				+ "]";
+	}
+	
+	
 	
 	
 	

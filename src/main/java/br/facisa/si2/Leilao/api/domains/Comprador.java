@@ -50,4 +50,15 @@ public class Comprador implements Identificable {
 	public void update() {
 		System.out.println("Preco do Lance é" + mediador.getPrecoDoLance());
 	}
+
+	@Override
+	public String toString() {
+		return "Comprador [id=" + id + ", nome=" + nome + ", mediador=" + mediador + "]";
+	}
+
+	
+
+	
+	
+	
 }

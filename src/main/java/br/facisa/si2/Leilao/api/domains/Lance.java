@@ -29,8 +29,6 @@ public class Lance implements Identificable {
 	public Lance() {
 		
 	}
-	
-	
 
 	
 	public Long getId() {
