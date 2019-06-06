@@ -30,7 +30,7 @@ public abstract class ServiceAbs <T extends Identificable>{
 	
 	public T atualiza( T t) throws RestException{ // ATUALIZA
 		if (repository.existsById(t.getId())) {
-			return repository.save(t);
+			return repository.saveAndFlush(t);
 		}throw new RestException("Id não encontrado!!");
 	}
 	
