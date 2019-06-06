@@ -3,6 +3,7 @@ package br.facisa.si2.Leilao.api.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import br.facisa.si2.Leilao.api.services.LanceService;
 import br.facisa.si2.Leilao.api.services.LoteService;
 import br.facisa.si2.Leilao.api.services.MediadorService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/mediador")
 public class MediadorController {

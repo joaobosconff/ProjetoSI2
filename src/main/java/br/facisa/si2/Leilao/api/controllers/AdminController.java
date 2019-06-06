@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import br.facisa.si2.Leilao.api.domains.Comprador;
 import br.facisa.si2.Leilao.api.domains.Lote;
 import br.facisa.si2.Leilao.api.domains.Mediador;
 import br.facisa.si2.Leilao.api.domains.Produto;
+import br.facisa.si2.Leilao.api.domains.UserFactory;
 import br.facisa.si2.Leilao.api.domains.Usuario;
 import br.facisa.si2.Leilao.api.domains.dto.LoteDto;
 import br.facisa.si2.Leilao.api.domains.dto.UserDto;
@@ -28,6 +30,7 @@ import br.facisa.si2.Leilao.api.services.LoteService;
 import br.facisa.si2.Leilao.api.services.MediadorService;
 import br.facisa.si2.Leilao.api.services.ProdutoService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -56,14 +59,17 @@ public class AdminController {
 	
 	@PutMapping("/usuario/{id}")
 	public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id,@RequestBody UserDto dto) throws RestException{
-		Usuario user = null;
+		UserFactory userFactory = new UserFactory();
+		Usuario user = new Usuario();
 		if(dto.getRole() == UserType.COMPRADOR) {
-			user = (Comprador) dto.getUser();
+			user = userFactory.criar(UserType.COMPRADOR);
 			user.setId(id);
+			user.setNome(dto.getNome());
 			user = compService.atualiza((Comprador) user);
 		}else if (dto.getRole() == UserType.MEDIADOR) {
-			user = (Mediador) dto.getUser();
+			user = userFactory.criar(UserType.MEDIADOR);
 			user.setId(id);
+			user.setNome(dto.getNome());
 			user = medService.atualiza((Mediador) user);
 		}
 		return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
@@ -82,11 +88,14 @@ public class AdminController {
 	
 	@PostMapping("/usuario")
 	public ResponseEntity<Usuario> createUsuario(@RequestBody UserDto dto){
-		Usuario user = null;
+		UserFactory userFactory = new UserFactory();
+		Usuario user = new Usuario();
 		if(dto.getRole() == UserType.COMPRADOR) {
-			user = compService.add((Comprador) dto.getUser());
+			user = userFactory.criar(UserType.COMPRADOR);
+			user.setNome(dto.getNome());
 		}else if (dto.getRole() == UserType.MEDIADOR) {
-			user = medService.add((Mediador) dto.getUser());
+			user = userFactory.criar(UserType.MEDIADOR);
+			user.setNome(dto.getNome());
 		}
 		return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
 		

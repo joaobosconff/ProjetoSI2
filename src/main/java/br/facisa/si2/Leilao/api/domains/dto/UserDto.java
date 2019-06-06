@@ -1,25 +1,24 @@
 package br.facisa.si2.Leilao.api.domains.dto;
 
-import br.facisa.si2.Leilao.api.domains.Usuario;
 import br.facisa.si2.Leilao.api.enumerator.UserType;
 
 public class UserDto {
 	
-	private Usuario user;
+	private String nome;
 	
 	private UserType role;
 
-	public UserDto(Usuario user, UserType role) {
-		this.user = user;
+	public UserDto(String nome, UserType role) {
+		this.nome = nome;
 		this.role = role;
 	}
 
-	public Usuario getUser() {
-		return user;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setUser(Usuario user) {
-		this.user = user;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public UserType getRole() {
@@ -29,6 +28,10 @@ public class UserDto {
 	public void setRole(UserType role) {
 		this.role = role;
 	}
+	
+	
+
+	
 
 	
 }
