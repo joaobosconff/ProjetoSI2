@@ -64,7 +64,6 @@ public class Mediador implements Identificable {
 		this.lance = lance;
 		for (Comprador comprador : compradores) {
 			comprador.update();
-			
 		}
 	}
 

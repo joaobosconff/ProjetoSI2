@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.3" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="br.facisa.si2.Leilao.App" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/App.java" binary="false" label="app" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="826" width="0" x="0" y="78"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="763" width="0" x="0" y="120"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="br.facisa.si2.Leilao.api.Admin" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/Admin.java" binary="false" label="admin" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="501" width="0" x="0" y="361"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="471" width="0" x="0" y="325"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="408" width="0" x="0" y="367"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="574"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="697"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="820"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="br.facisa.si2.Leilao.api.domains.Comprador" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Comprador.java" binary="false" label="comprador" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="398"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="524"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="br.facisa.si2.Leilao.api.abstracts.ServiceAbs" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/abstracts/ServiceAbs.java" binary="false" label="compServ" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="733"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="25" interaction-operator="LOOP">    
+    <interaction-operand id="26" constraint="while: executando">      
+      <fragment refId="27"/>    
+    </interaction-operand>    
+    <combined-fragment id="27" interaction-operator="ALT">      
+      <interaction-operand id="28" constraint="number == 1">        
+        <fragment refId="8"/>      
+      </interaction-operand>      
+      <interaction-operand id="29" constraint="else">        
+        <fragment refId="30"/>      
+      </interaction-operand>      
+      <combined-fragment id="30" interaction-operator="ALT">        
+        <interaction-operand id="31" constraint="number == 2">          
+          <fragment refId="10"/>        
+        </interaction-operand>        
+        <interaction-operand id="32" constraint="else">          
+          <fragment refId="33"/>        
+        </interaction-operand>        
+        <combined-fragment id="33" interaction-operator="ALT">          
+          <interaction-operand id="34" constraint="number == 3">            
+            <fragment refId="12"/>          
+          </interaction-operand>          
+          <interaction-operand id="35" constraint="else"/>        
+        </combined-fragment>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <combined-fragment id="36" interaction-operator="OPT">    
+    <interaction-operand id="37" constraint="number2 == 1">      
+      <fragment refId="21"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <message id="3" operation="run(java.lang.String[]):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="execute():void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" operation="criarCompraddor():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="criarProduto():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="criarLote():void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" operation="criarCompraddor():void" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="Comprador()" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="setNome(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="add(T)" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>
+</sequence-diagram>

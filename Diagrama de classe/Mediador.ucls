@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="br.facisa.si2.Leilao.api.abstracts.ServiceAbs" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/abstracts/ServiceAbs.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="191" width="222" x="408" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.facisa.si2.Leilao.api.domains.Mediador" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Mediador.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="353" width="229" x="225" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="br.facisa.si2.Leilao.api.interfaces.Identificable" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/interfaces/Identificable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="83" width="155" x="475" y="889"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="br.facisa.si2.Leilao.api.repositories.MediadorRepository" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/repositories/MediadorRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="65" width="163" x="41" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="br.facisa.si2.Leilao.api.services.MediadorService" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/services/MediadorService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="83" width="232" x="222" y="268"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="6">    
+    <bendpoint x="234" y="391"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="8">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="9">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="10">    
+    <bendpoint x="484" y="268"/>    
+    <bendpoint x="484" y="391"/>    
+    <bendpoint x="484" y="496"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <realization id="11">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
