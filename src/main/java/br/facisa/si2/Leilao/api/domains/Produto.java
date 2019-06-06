@@ -18,6 +18,8 @@ public class Produto implements Identificable {
 	private double precoInicial;
 	
 	private double precoFinal;
+	
+	private Comprador compradorFinal;
 
 	public Produto(String nome, double precoInicial, double precoFinal) {
 		this.nome = nome;
@@ -66,12 +68,12 @@ public class Produto implements Identificable {
 		return "Produto [id=" + id + ", nome=" + nome + ", precoInicial=" + precoInicial + ", precoFinal=" + precoFinal
 				+ "]";
 	}
-	
-	
-	
-	
-	
 
-	
+	public Comprador getCompradorFinal() {
+		return compradorFinal;
+	}
 
+	public void setCompradorFinal(Comprador compradorFinal) {
+		this.compradorFinal = compradorFinal;
+	}
 }

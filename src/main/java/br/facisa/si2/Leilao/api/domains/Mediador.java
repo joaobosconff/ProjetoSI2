@@ -12,40 +12,25 @@ import javax.persistence.OneToOne;
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
 @Entity
-public class Mediador implements Identificable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String nome;
-	
+public class Mediador extends Usuario{
+
 	private Double precoDoLance;
-	
+
 	@OneToOne
 	private Lance lance;
 	
+	private HistoricoLance historicoLance;
+
 	@OneToMany
 	private List<Comprador> compradores;
 
 	public Mediador(String nome, Lance lance) {
-		this.nome = nome;
+		super(nome);
 		this.lance = lance;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	
+	public Mediador() {
+		
 	}
 
 	public Double getPrecoDoLance() {
@@ -61,9 +46,17 @@ public class Mediador implements Identificable {
 	}
 
 	public void setLance(Lance lance) {
-		this.lance = lance;
-		for (Comprador comprador : compradores) {
-			comprador.update();
+		if (this.lance.getProdutoLeiloado().getCompradorFinal() != null) {
+			System.out.println("Produto ja leiloado");
+		} else if (lance.getPrecoLance() >= this.lance.getPrecoLance()) {
+			System.out.println("Vencedor" + lance.getCompradorFinal().getNome());
+			this.lance.getProdutoLeiloado().setCompradorFinal(lance.getCompradorFinal());
+		} else {
+			this.getHistoricoLance().adicionarLance(this.lance);
+			this.lance = lance;
+			for (Comprador comprador : compradores) {
+				comprador.update();
+			}
 		}
 	}
 
@@ -75,7 +68,9 @@ public class Mediador implements Identificable {
 		this.compradores = comprador;
 	}
 	
-
 	
+	public HistoricoLance getHistoricoLance() {
+		return historicoLance;
+	}
 
 }

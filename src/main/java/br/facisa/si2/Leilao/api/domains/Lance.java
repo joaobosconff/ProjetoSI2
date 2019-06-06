@@ -18,7 +18,7 @@ public class Lance implements Identificable {
 	private Produto produtoLeiloado;
 	
 	private Double precoLance;
-	
+
 	@OneToOne
 	private Comprador compradorFinal;
 
@@ -26,10 +26,10 @@ public class Lance implements Identificable {
 		this.produtoLeiloado = produtoLeiloados;
 		this.precoLance = precoLance;
 	}
+	
 	public Lance() {
 		
 	}
-
 	
 	public Long getId() {
 		return id;

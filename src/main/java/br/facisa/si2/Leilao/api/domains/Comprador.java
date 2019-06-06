@@ -9,14 +9,7 @@ import javax.persistence.OneToOne;
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
 @Entity
-public class Comprador implements Identificable {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String nome;
-	
+public class Comprador extends Usuario {
 	@OneToOne
 	private Mediador mediador;
 	
@@ -24,27 +17,7 @@ public class Comprador implements Identificable {
 	}
 
 	public Comprador(String nome) {
-		this.nome = nome;
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
+		super(nome);
 	}
 
 	public void update() {
@@ -53,12 +26,6 @@ public class Comprador implements Identificable {
 
 	@Override
 	public String toString() {
-		return "Comprador [id=" + id + ", nome=" + nome + ", mediador=" + mediador + "]";
+		return "Comprador [id=" + getId() + ", nome=" + getNome() + ", mediador=" + mediador + "]";
 	}
-
-	
-
-	
-	
-	
 }

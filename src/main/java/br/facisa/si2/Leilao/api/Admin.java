@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import br.facisa.si2.Leilao.api.domains.Comprador;
 import br.facisa.si2.Leilao.api.domains.Lote;
 import br.facisa.si2.Leilao.api.domains.Produto;
+import br.facisa.si2.Leilao.api.domains.UserFactory;
+import br.facisa.si2.Leilao.api.domains.Usuario;
+import br.facisa.si2.Leilao.api.enumerator.UserType;
 import br.facisa.si2.Leilao.api.services.CompradorService;
 import br.facisa.si2.Leilao.api.services.LoteService;
 import br.facisa.si2.Leilao.api.services.ProdutoService;
@@ -24,6 +27,9 @@ public class Admin {
 	
 	@Autowired
 	private LoteService loteServ;
+	
+	@Autowired
+	private UserFactory userFactory;
 
 	@Autowired
 	private Scanner input;
@@ -39,7 +45,7 @@ public class Admin {
 					"Bem vindo ao sistema de leilão,o que você deseja fazer? 1-Criar Comprador 2-Criar produto,3-Criar lote,6-Fechar");
 			int number = input.nextInt();
 			if (number == 1) {
-				this.criarCompraddor();
+				this.criarUsuario(UserType.COMPRADOR, "");
 			} else if (number == 2) {
 				this.criarProduto();
 			}else if(number == 3) {
@@ -51,19 +57,9 @@ public class Admin {
 		}
 	}
 
-	private void criarCompraddor() {
-
-		Comprador comprador = new Comprador();
-		System.out.println("Digite o nome do Comprador:");
-		String nome = input.next();
-		comprador.setNome(nome);
-		System.out.println(comprador);
-		System.out.println("Deseja salvar? 1-SIM , 2-NÂO");
-		int number2 = input.nextInt();
-		if (number2 == 1) {
-			compServ.add(comprador);
-			System.out.println("Salvo");
-		}
+	private void criarUsuario(UserType ut, String nome) {
+		Usuario user = this.userFactory.criar(ut);
+		user.setNome(nome);	
 	}
 
 	private void criarProduto() {
