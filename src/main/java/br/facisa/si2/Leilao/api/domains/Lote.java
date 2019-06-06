@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import aj.org.objectweb.asm.Type;
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
 @Entity

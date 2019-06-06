@@ -1,5 +1,7 @@
 package br.facisa.si2.Leilao.api.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,4 +31,19 @@ public class LoteService{
 		
 	}
 
+	public List<Lote> getAll() { 
+		return loteRep.findAll();
+	}
+	
+	public Lote getById(Long id) {
+		return loteRep.getOne(id);
+	}
+	
+	public Lote atualiza(Lote l) {
+		return loteRep.saveAndFlush(l);
+	}
+	
+	public void deleta(Long id) {
+		loteRep.deleteById(id);
+	}
 }
