@@ -51,6 +51,10 @@ public class Mediador extends Usuario{
 		} else if (lance.getPrecoLance() >= this.lance.getPrecoLance()) {
 			System.out.println("Vencedor" + lance.getCompradorFinal().getNome());
 			this.lance.getProdutoLeiloado().setCompradorFinal(lance.getCompradorFinal());
+			this.lance = null;
+			this.historicoLance = null;
+			this.compradores = null;
+			this.precoDoLance = null;
 		} else {
 			this.getHistoricoLance().adicionarLance(this.lance);
 			this.lance = lance;

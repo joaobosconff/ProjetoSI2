@@ -1,138 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence-diagram version="1.2.3" icons="true" generate-combined-fragments="true">  
-  <object id="1" language="java" name="br.facisa.si2.Leilao.App" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/App.java" binary="false" label="app" type="class" autoSize="true">    
-    <position height="-1" width="-1" x="8" y="0"/>    
+  <object id="1" language="java" name="br.facisa.si2.Leilao.api.controllers.MediadorController" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/controllers/MediadorController.java" binary="false" 
+    label="mediadorController" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="204" y="0"/>    
     <execution id="2">      
-      <position height="84" width="0" x="0" y="138"/>    
+      <position height="262" width="0" x="0" y="88"/>    
     </execution>    
     <execution id="4">      
-      <position height="21" width="0" x="0" y="180"/>    
+      <position height="199" width="0" x="0" y="130"/>    
     </execution>  
   </object>  
-  <object id="5" language="java" name="br.facisa.si2.Leilao.api.domains.Mediador" project="Leilao" 
+  <object id="13" language="java" name="br.facisa.si2.Leilao.api.domains.Mediador" project="Leilao" 
     file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Mediador.java" binary="false" label="mediador" 
     type="class" autoSize="true">    
-    <position height="-1" width="-1" x="198" y="0"/>    
+    <position height="0" width="0" x="0" y="0"/>    
     <execution id="6">      
-      <position height="707" width="0" x="0" y="161"/>    
+      <position height="21" width="0" x="0" y="161"/>    
     </execution>    
     <execution id="8">      
-      <position height="644" width="0" x="0" y="203"/>    
-    </execution>    
-    <execution id="20">      
-      <position height="21" width="0" x="0" y="691"/>    
+      <position height="21" width="0" x="0" y="203"/>    
     </execution>  
   </object>  
-  <object id="25" language="java" name="br.facisa.si2.Leilao.api.domains.Lance" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Lance.java" binary="false" label="lance" type="class" 
+  <object id="14" language="java" name="br.facisa.si2.Leilao.api.domains.Lance" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Lance.java" binary="false" label="l" type="class" 
     autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
     <execution id="10">      
-      <position height="21" width="0" x="0" y="378"/>    
-    </execution>    
-    <execution id="14">      
-      <position height="21" width="0" x="0" y="504"/>    
-    </execution>    
-    <execution id="16">      
-      <position height="21" width="0" x="0" y="546"/>    
+      <position height="21" width="0" x="0" y="245"/>    
     </execution>  
   </object>  
-  <object id="26" language="java" name="br.facisa.si2.Leilao.api.domains.Comprador" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Comprador.java" binary="false" type="class" 
-    autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="12">      
-      <position height="21" width="0" x="0" y="420"/>    
-    </execution>  
-  </object>  
-  <object id="27" language="java" name="br.facisa.si2.Leilao.api.domains.Produto" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Produto.java" binary="false" type="class" 
-    autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="18">      
-      <position height="21" width="0" x="0" y="588"/>    
-    </execution>  
-  </object>  
-  <object id="28" language="java" name="br.facisa.si2.Leilao.api.domains.HistoricoLance" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/HistoricoLance.java" binary="false" type="class" 
-    autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="22">      
-      <position height="21" width="0" x="0" y="722"/>    
-    </execution>  
-  </object>  
-  <object id="29" language="java" name="br.facisa.si2.Leilao.api.domains.Comprador" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Comprador.java" binary="false" label="comprador" 
+  <object id="15" language="java" name="br.facisa.si2.Leilao.api.abstracts.ServiceAbs" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/abstracts/ServiceAbs.java" binary="false" label="lanceService" 
     type="class" autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
-    <execution id="24">      
-      <position height="21" width="0" x="0" y="805"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="287"/>    
     </execution>  
   </object>  
-  <combined-fragment id="30" interaction-operator="ALT">    
-    <interaction-operand id="31" constraint="this.lance.getProdutoLeiloado().getCompradorFinal() != null"/>    
-    <interaction-operand id="32" constraint="else">      
-      <fragment refId="33"/>    
-    </interaction-operand>    
-    <combined-fragment id="33" interaction-operator="ALT">      
-      <interaction-operand id="34" constraint="lance.getPrecoLance() &gt;= this.lance.getPrecoLance()">        
-        <fragment refId="13"/>        
-        <fragment refId="17"/>        
-        <fragment refId="11"/>        
-        <fragment refId="9"/>        
-        <fragment refId="15"/>      
-      </interaction-operand>      
-      <interaction-operand id="35" constraint="else">        
-        <fragment refId="36"/>        
-        <fragment refId="19"/>        
-        <fragment refId="21"/>      
-      </interaction-operand>      
-      <combined-fragment id="36" interaction-operator="LOOP">        
-        <interaction-operand id="37" constraint="for: compradores">          
-          <fragment refId="23"/>        
-        </interaction-operand>      
-      </combined-fragment>    
-    </combined-fragment>  
-  </combined-fragment>  
-  <message id="3" operation="run(java.lang.String[]):void" asynchronous="false">    
+  <message id="3" 
+    operation="criarLance(br.facisa.si2.Leilao.api.domains.Lance):org.springframework.http.ResponseEntity&lt;Lance&gt;" 
+    asynchronous="false">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </message>  
-  <message id="7" operation="setLance(br.facisa.si2.Leilao.api.domains.Lance):void" asynchronous="false">    
-    <end type="SOURCE" refId="6"/>    
+  <message id="5" operation="setLance(br.facisa.si2.Leilao.api.domains.Lance):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="setPrecoDoLance(java.lang.Double):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="8"/>  
   </message>  
-  <message id="9" operation="getCompradorFinal():br.facisa.si2.Leilao.api.domains.Comprador" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
+  <message id="9" operation="getPrecoLance():java.lang.Double" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="10"/>  
   </message>  
-  <message id="11" operation="getNome():java.lang.String" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
+  <message id="11" operation="add(T)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="12"/>  
-  </message>  
-  <message id="13" operation="getProdutoLeiloado():br.facisa.si2.Leilao.api.domains.Produto" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="14"/>  
-  </message>  
-  <message id="15" operation="getCompradorFinal():br.facisa.si2.Leilao.api.domains.Comprador" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="16"/>  
-  </message>  
-  <message id="17" operation="setCompradorFinal(br.facisa.si2.Leilao.api.domains.Comprador):void" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="18"/>  
-  </message>  
-  <message id="19" operation="getHistoricoLance():br.facisa.si2.Leilao.api.domains.HistoricoLance" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="20"/>  
-  </message>  
-  <message id="21" operation="adicionarLance(br.facisa.si2.Leilao.api.domains.Lance):void" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="22"/>  
-  </message>  
-  <message id="23" operation="update():void" asynchronous="false">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="24"/>  
   </message>
 </sequence-diagram>

@@ -10,29 +10,29 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="br.facisa.si2.Leilao.api.domains.Produto" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Produto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="335" width="187" x="265" y="532"/>    
+  <class id="2" language="java" name="br.facisa.si2.Leilao.api.controllers.AdminController" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/controllers/AdminController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="407" width="329" x="303" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="3" language="java" name="br.facisa.si2.Leilao.api.interfaces.Identificable" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/interfaces/Identificable.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="83" width="155" x="41" y="907"/>    
+  <class id="3" language="java" name="br.facisa.si2.Leilao.api.domains.Produto" project="Leilao" 
+    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/domains/Produto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="389" width="222" x="250" y="712"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </interface>  
+  </class>  
   <interface id="4" language="java" name="br.facisa.si2.Leilao.api.repositories.ProdutoRepository" project="Leilao" 
     file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/repositories/ProdutoRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="65" width="163" x="81" y="427"/>    
+    <position height="65" width="163" x="66" y="607"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -42,64 +42,48 @@
   <class id="5" language="java" name="br.facisa.si2.Leilao.api.services.ProdutoService" project="Leilao" 
     file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/services/ProdutoService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="83" width="216" x="81" y="304"/>    
+    <position height="83" width="216" x="66" y="484"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="br.facisa.si2.Leilao.api.Admin" project="Leilao" 
-    file="/Leilao/src/main/java/br/facisa/si2/Leilao/api/Admin.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="227" width="187" x="303" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <dependency id="7">    
-    <bendpoint x="50" y="304"/>    
-    <bendpoint x="50" y="427"/>    
-    <bendpoint x="50" y="532"/>    
-    <end type="SOURCE" refId="1"/>    
+  <dependency id="6">    
+    <bendpoint x="259" y="607"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="8">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="9">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="10">    
-    <bendpoint x="327" y="304"/>    
-    <bendpoint x="327" y="427"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <dependency id="12">    
-    <bendpoint x="274" y="427"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <realization id="13">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="14">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="15" name="prodServ"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
+  <association id="7">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="8" name="prodService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="9" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="10">    
+    <bendpoint x="312" y="484"/>    
+    <bendpoint x="312" y="607"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="13">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
