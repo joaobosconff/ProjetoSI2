@@ -30,10 +30,13 @@ public class Usuario implements Identificable{
 		this.nome = nome;
 	}
 
-	@Override
+	
 	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

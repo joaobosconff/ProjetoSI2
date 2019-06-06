@@ -54,6 +54,32 @@ public class AdminController {
 		return new ResponseEntity<List<Comprador>>(compService.getAll(),HttpStatus.OK);
 	}
 	
+	@PutMapping("/usuario/{id}")
+	public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id,@RequestBody UserDto dto) throws RestException{
+		Usuario user = null;
+		if(dto.getRole() == UserType.COMPRADOR) {
+			user = (Comprador) dto.getUser();
+			user.setId(id);
+			user = compService.atualiza((Comprador) user);
+		}else if (dto.getRole() == UserType.MEDIADOR) {
+			user = (Mediador) dto.getUser();
+			user.setId(id);
+			user = medService.atualiza((Mediador) user);
+		}
+		return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
+		
+	}
+	
+	@DeleteMapping("/usuario/{id}")
+	public ResponseEntity<String> deleteUsuario(@PathVariable Long id,@RequestBody UserDto dto) throws RestException{
+		if(dto.getRole() == UserType.COMPRADOR) {
+			compService.deleta(id);
+		}else if (dto.getRole() == UserType.MEDIADOR) {
+			medService.deleta(id);
+		}
+		return new ResponseEntity<String>("deletado",HttpStatus.OK);
+	}
+	
 	@PostMapping("/usuario")
 	public ResponseEntity<Usuario> createUsuario(@RequestBody UserDto dto){
 		Usuario user = null;
@@ -119,4 +145,5 @@ public class AdminController {
 		loteService.deleta(id);
 		return new ResponseEntity<String>("Deletado com sucesso!",HttpStatus.OK);
 	}
+	
 }
