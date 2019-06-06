@@ -12,13 +12,17 @@ import javax.persistence.OneToOne;
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
 @Entity
-public class Mediador extends Usuario{
+public class Mediador extends Usuario implements Identificable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	private Double precoDoLance;
 
 	@OneToOne
 	private Lance lance;
 	
+	@OneToOne
 	private HistoricoLance historicoLance;
 
 	@OneToMany
@@ -72,7 +76,26 @@ public class Mediador extends Usuario{
 		this.compradores = comprador;
 	}
 	
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Comprador> getCompradores() {
+		return compradores;
+	}
+
+	public void setCompradores(List<Comprador> compradores) {
+		this.compradores = compradores;
+	}
+
+	public void setHistoricoLance(HistoricoLance historicoLance) {
+		this.historicoLance = historicoLance;
+	}
+
 	public HistoricoLance getHistoricoLance() {
 		return historicoLance;
 	}

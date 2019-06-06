@@ -1,15 +1,6 @@
 package br.facisa.si2.Leilao.api.domains;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import br.facisa.si2.Leilao.api.interfaces.Identificable;
-
-public class Usuario implements Identificable{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class Usuario{
 	
 	private String nome;
 
@@ -30,14 +21,10 @@ public class Usuario implements Identificable{
 		this.nome = nome;
 	}
 
-	
-	public Long getId() {
-		return id;
-	}
-	
 	public void setId(Long id) {
-		this.id = id;
+		// TODO Auto-generated method stub
+		
 	}
-	
+
 	
 }

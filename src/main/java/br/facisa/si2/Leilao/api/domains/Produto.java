@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.facisa.si2.Leilao.api.interfaces.Identificable;
 
@@ -19,6 +20,7 @@ public class Produto implements Identificable {
 	
 	private double precoFinal;
 	
+	@OneToOne
 	private Comprador compradorFinal;
 
 	public Produto(String nome, double precoInicial, double precoFinal) {

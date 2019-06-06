@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import antlr.collections.List;
 import br.facisa.si2.Leilao.api.domains.Lance;
 import br.facisa.si2.Leilao.api.domains.Lote;
 import br.facisa.si2.Leilao.api.domains.Mediador;
-import br.facisa.si2.Leilao.api.domains.Produto;
+import br.facisa.si2.Leilao.api.exceptions.RestException;
 import br.facisa.si2.Leilao.api.services.LanceService;
 import br.facisa.si2.Leilao.api.services.LoteService;
 import br.facisa.si2.Leilao.api.services.MediadorService;
@@ -25,18 +24,18 @@ public class MediadorController {
 	private MediadorService mediadorService;
 
 	@Autowired
-	private Mediador mediador = mediadorService.getAll().get(0);
-
-	@Autowired
 	private LanceService lanceService;
 	
 	@Autowired
 	private LoteService loteService;
 
 	@PostMapping("/lance")
-	public ResponseEntity<Lance> criarLance(@RequestBody Lance l) {
-		this.mediador.setLance(l);
-		this.mediador.setPrecoDoLance(l.getPrecoLance());
+	public ResponseEntity<Lance> criarLance(@RequestBody Lance l) throws RestException {
+		Mediador mediadorUnico = mediadorService.getAll().get(0);
+
+		mediadorUnico.setLance(l);
+		mediadorUnico.setPrecoDoLance(l.getPrecoLance());
+		mediadorService.atualiza(mediadorUnico);
 		return new ResponseEntity<Lance>(lanceService.add(l), HttpStatus.CREATED);
 	}
 	
