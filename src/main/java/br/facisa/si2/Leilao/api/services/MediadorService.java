@@ -7,6 +7,7 @@ import br.facisa.si2.Leilao.api.abstracts.ServiceAbs;
 import br.facisa.si2.Leilao.api.domains.Comprador;
 import br.facisa.si2.Leilao.api.domains.Lance;
 import br.facisa.si2.Leilao.api.domains.Mediador;
+import br.facisa.si2.Leilao.api.domains.Produto;
 import br.facisa.si2.Leilao.api.exceptions.RestException;
 import br.facisa.si2.Leilao.api.repositories.MediadorRepository;
 
@@ -36,10 +37,16 @@ public class MediadorService extends ServiceAbs<Mediador>{
 	
 	public String confirmarCompra(Lance l,Comprador comprador) throws RestException {
 		String msg = "O lance" + l.toString() + " foi vendido para" + comprador.getNome();
-		lanceService.deleta(l.getId());
 		return msg;
 	}
 	
-
+	public Produto confirmarCompra(String msg, Lance l) throws RestException {
+		Produto p = null;
+		if (msg == "Sim") {
+			p = l.getProdutoLeiloado();
+		}
+		lanceService.deleta(l.getId());
+		return p;
+	}
 }
 

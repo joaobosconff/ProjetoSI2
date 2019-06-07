@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.facisa.si2.Leilao.api.domains.Lance;
 import br.facisa.si2.Leilao.api.domains.Lote;
+import br.facisa.si2.Leilao.api.domains.Produto;
 import br.facisa.si2.Leilao.api.exceptions.RestException;
 import br.facisa.si2.Leilao.api.services.LanceService;
 import br.facisa.si2.Leilao.api.services.LoteService;
@@ -25,9 +26,6 @@ public class MediadorController {
 	private MediadorService mediadorService;
 
 	@Autowired
-	private LanceService lanceService;
-	
-	@Autowired
 	private LoteService loteService;
 
 	@PostMapping("/lance")
@@ -39,5 +37,10 @@ public class MediadorController {
 	public ResponseEntity<Lote> comprarLote(@RequestBody Lote l) {
 		loteService.deleta(l.getId());
 		return new ResponseEntity<Lote>(l, HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/confirmar/lance")
+	public ResponseEntity<Produto> confirmarCompra(@RequestBody Lance l, String msg) throws RestException {
+		return new ResponseEntity<Produto>(mediadorService.confirmarCompra(msg, l), HttpStatus.CREATED);
 	}
 }
