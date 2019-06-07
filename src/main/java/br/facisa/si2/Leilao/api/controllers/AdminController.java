@@ -93,11 +93,17 @@ public class AdminController {
 		if(dto.getRole() == UserType.COMPRADOR) {
 			user = userFactory.criar(UserType.COMPRADOR);
 			user.setNome(dto.getNome());
+			compService.add((Comprador) user);
+			return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
 		}else if (dto.getRole() == UserType.MEDIADOR) {
 			user = userFactory.criar(UserType.MEDIADOR);
 			user.setNome(dto.getNome());
+			medService.add((Mediador)user);
+			return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
 		}
-		return new ResponseEntity<Usuario>(user,HttpStatus.CREATED);
+		return null;
+		
+		
 		
 	}
 	

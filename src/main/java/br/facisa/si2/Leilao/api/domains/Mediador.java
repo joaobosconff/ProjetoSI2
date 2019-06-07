@@ -49,16 +49,16 @@ public class Mediador extends Usuario implements Identificable{
 		return lance;
 	}
 
-	public void setLance(Lance lance) {
+	public String setLance(Lance lance) {
 		if (this.lance.getProdutoLeiloado().getCompradorFinal() != null) {
-			System.out.println("Produto ja leiloado");
+			return "Ja comprado";
 		} else if (lance.getPrecoLance() >= this.lance.getPrecoLance()) {
-			System.out.println("Vencedor" + lance.getCompradorFinal().getNome());
 			this.lance.getProdutoLeiloado().setCompradorFinal(lance.getCompradorFinal());
 			this.lance = null;
 			this.historicoLance = null;
 			this.compradores = null;
 			this.precoDoLance = null;
+			return "vencedor";
 		} else {
 			this.getHistoricoLance().adicionarLance(this.lance);
 			this.lance = lance;
@@ -66,6 +66,7 @@ public class Mediador extends Usuario implements Identificable{
 				comprador.update();
 			}
 		}
+		return "";
 	}
 
 	public List<Comprador> getComprador() {

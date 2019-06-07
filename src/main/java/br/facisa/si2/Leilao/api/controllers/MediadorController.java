@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.facisa.si2.Leilao.api.domains.Comprador;
 import br.facisa.si2.Leilao.api.domains.Lance;
 import br.facisa.si2.Leilao.api.domains.Lote;
 import br.facisa.si2.Leilao.api.domains.Mediador;
@@ -35,12 +36,22 @@ public class MediadorController {
 	public ResponseEntity<Lance> criarLance(@RequestBody Lance l) throws RestException {
 		Mediador mediadorUnico = mediadorService.getAll().get(0);
 
-		mediadorUnico.setLance(l);
+		String msg = mediadorUnico.setLance(l);
+		if (msg == "vencedor") {
+			confirmarCompra(l.getCompradorFinal());
+		} else {			
 		mediadorUnico.setPrecoDoLance(l.getPrecoLance());
 		mediadorService.atualiza(mediadorUnico);
 		return new ResponseEntity<Lance>(lanceService.add(l), HttpStatus.CREATED);
+		}
 	}
 	
+	private ResponseEntity<String> confirmarCompra(Comprador compradorFinal) {
+		return new ResponseEntity<String>("Confirmar compra", HttpStatus.OK);
+	}
+	
+	@PostMapping("/confirmar")
+
 	@PostMapping("/lote")
 	public ResponseEntity<Lote> comprarLote(@RequestBody Lote l) {
 		loteService.deleta(l.getId());
